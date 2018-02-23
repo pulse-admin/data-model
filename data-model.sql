@@ -499,6 +499,8 @@ ALTER TABLE location_endpoint_map OWNER TO pulse;
 
 CREATE TABLE alternate_care_facility (
 	id bigserial not null,
+	liferay_state_id bigserial not null,
+	liferay_acf_id bigserial not null,
 	identifier varchar(500) not null,
 	name varchar(500),
 	phone_number varchar(50),
