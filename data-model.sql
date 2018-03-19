@@ -450,6 +450,7 @@ CREATE TABLE endpoint (
 	endpoint_type_id bigint NOT NULL,
 	endpoint_status_id bigint NOT NULL,
 	managing_organization_name varchar(1024),
+	organization_id varchar(64),
   	adapter character varying(128) NOT NULL, -- always eHealth?
 	payload_type varchar(512), -- HL7 CCDA Document
 	payload_mime_type varchar(128), -- application/xml
