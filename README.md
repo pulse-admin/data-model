@@ -10,7 +10,6 @@ This is the Data Model for PULSE.
 $ git clone https://git.ainq.com/pulse/data-model.git
 $ cd data-model
 $ ./reset.sh
-$ ./fake.sh
 ```
 
 # Encrypting PHI

@@ -410,9 +410,9 @@ ALTER TABLE endpoint_type OWNER TO pulse;
 
 CREATE TABLE location (
 	id bigserial NOT NULL,
-	external_id varchar(16) NOT NULL, -- the id we get from CTEN
+	external_id varchar(64) NOT NULL, -- the id we get from CTEN
 	location_status_id bigint NOT NULL,
-	parent_organization_name varchar(255) NOT NULL,
+	parent_organization_name varchar(255),
   	name varchar(128) NOT NULL,
 	description varchar(500),
 	location_type varchar(50), --Hospital or whatever
@@ -446,10 +446,11 @@ ALTER TABLE location_address_line OWNER TO pulse;
 
 CREATE TABLE endpoint (
 	id bigserial NOT NULL,
-	external_id varchar(16) NOT NULL, -- the id we get from CTEN
+	external_id varchar(64) NOT NULL, -- the id we get from CTEN
 	endpoint_type_id bigint NOT NULL,
 	endpoint_status_id bigint NOT NULL,
 	managing_organization_name varchar(1024),
+	organization_id varchar(64),
   	adapter character varying(128) NOT NULL, -- always eHealth?
 	payload_type varchar(512), -- HL7 CCDA Document
 	payload_mime_type varchar(128), -- application/xml
@@ -499,6 +500,8 @@ ALTER TABLE location_endpoint_map OWNER TO pulse;
 
 CREATE TABLE alternate_care_facility (
 	id bigserial not null,
+	liferay_state_id bigserial not null,
+	liferay_acf_id bigserial not null,
 	identifier varchar(500) not null,
 	name varchar(500),
 	phone_number varchar(50),
